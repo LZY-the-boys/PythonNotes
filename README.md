@@ -1,4 +1,4 @@
-Python 进阶
+Python Advanced
 
 - `+-*/` implement: `__add__, __radd__, __neg__`
 - `getattr`  `setattr`
