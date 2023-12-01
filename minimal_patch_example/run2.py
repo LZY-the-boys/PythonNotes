@@ -26,7 +26,7 @@ import thing
 thing.fetch_thing = fetch_thing2
 data = _thing.run()
 
-# 3. however, for ray is useless
+# 3. however, when in multi-process scenaries it's useless because the process isolation 
 # When using ray.remote to create and run actors, 
 # the code for the remote actor is executed in a separate Python interpreter within the Ray worker process. Since the mock.patch is applied in the main process, it won't be able to patch objects inside the remote actor processes.
 # simple patch can work ( in run3.py )
