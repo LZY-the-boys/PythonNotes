@@ -32,3 +32,16 @@ Local Scheduler 就是 Raylet， 是单机上的基础调度服务
 - https://zhuanlan.zhihu.com/p/460600694
 - https://zhuanlan.zhihu.com/p/111340572
 - paper: https://arxiv.org/abs/1712.05889
+
+
+
+```
+    # Make sure breakpoint() in the user's code will
+    # invoke the Ray debugger if we are in a worker or actor process
+    # (but not on the driver).
+    if mode == WORKER_MODE:
+        os.environ["PYTHONBREAKPOINT"] = "ray.util.rpdb.set_trace"
+    else:
+        # Add hook to suppress worker logs during breakpoint.
+        os.environ["PYTHONBREAKPOINT"] = "ray.util.rpdb._driver_set_trace"
+```
