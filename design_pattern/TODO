@@ -1,0 +1,23 @@
+https://github.com/faif/python-patterns
+
+
+Python 本身是一种动态类型语言，允许变量的重新赋值。然而，如果你希望一个对象在被首次赋值后不能被改变，你可以使用一种间接的方法，那就是创建一个只有 getter 方法，没有 setter 方法的属性。
+这种方式通常在类的实例属性中使用。以下面的类为例：
+```python
+class MyClass:
+
+    def __init__(self, value):
+        self._value = value
+    
+    @property
+    def value(self):
+        return self._value
+
+obj = MyClass(10)
+print(obj.value)  # 输出: 10
+
+obj.value = 20  # AttributeError: can't set attribute
+```
+在这个例子中，_value 是一个私有变量，在类外部它无法直接访问。value 是一个公有的只读属性，它的值可以通过 value 访问，但无法修改。
+在实例化 MyClass 之后，再试图改变 value 的值会引发错误：这样，就能保证 value 在对象实例化后不能被修改。
+但是需要注意的是，这种方法并不适用于全局变量或局部变量，Python 中并没有直接禁止变量重新赋值的功能。
