@@ -1,4 +1,107 @@
 
+##### 拷贝问题
+
+
+赋值: 只是复制了新对象的引用 （从变量到对象的连接），不会开辟新的内存空间
+
+浅拷贝: 仅只拷贝了一层，拷贝了最外围的对象本身，内部的元素都只是拷贝了一个引用而已
+```python
+lst1 = lst[:] # 切片操作
+lst1 = [each for each in lst] # 切片操作
+lst1 = list(lst) # 工厂函数
+lst1 = copy.copy(lst) # copy函数
+lst1 = lst.copy()
+```
+
+深拷贝：(`copy.deepcopy()`) 和浅拷贝对应，深拷贝拷贝了对象的所有元素，包括多层嵌套的元素。深拷贝出来的对象是一个全新的对象，不再与原来的对象有任何关联
+
+不可变对象（字符串、元组、数值类型）的浅拷贝深拷贝和“赋值”的情况一样，
+对象的id值（id()函数用于获取对象的内存地址）与浅复制原来的值相同
+
+```python
+import copy
+a=(1,2,3)
+
+print("=====赋值=====")
+b=a
+print(a)   # (1, 2, 3)
+print(b)   # (1, 2, 3)
+print(id(a))   # 43481128
+print(id(b))   # 43481128
+
+print("=====浅拷贝=====")
+b=copy.copy(a)
+print(a)    # (1, 2, 3)
+print(b)    # (1, 2, 3)
+print(id(a))    # 43481128
+print(id(b))    # 43481128
+
+print("=====深拷贝=====")
+b=copy.deepcopy(a)
+print(a)  # (1, 2, 3)
+print(b)  # (1, 2, 3)
+print(id(a))  # 43481128
+print(id(b))  # 43481128
+
+```
+
+可变对象赋值： 值相等，地址相等， 拷贝值相等，地址不相等
+
+```python
+
+b=a  # =====赋值=====
+print(a)  # [1, 2, 3]
+print(b)  # [1, 2, 3]
+print(id(a))  # 37235144
+print(id(b))  # 37235144
+b=copy.copy(a)   # =====浅拷贝=====
+print(a)   # [1, 2, 3]
+print(b)   # [1, 2, 3]
+print(id(a))   # 37235144
+print(id(b))   # 37191432
+b=copy.deepcopy(a)    # =====深拷贝=====
+print(a)    # [1, 2, 3]
+print(b)    # [1, 2, 3]
+print(id(a))    # 37235144
+print(id(b))    # 37210184
+```
+
+然而关键在于 外层添加元素时，浅拷贝不会随原列表变化而变化；内层添加元素时，浅拷贝才会变化
+
+```python
+l=[1,2,3,[4, 5]]
+
+l1=l #赋值
+l2=copy.copy(l) #浅拷贝
+l3=copy.deepcopy(l) #深拷贝
+l[3].append(6) 
+
+print(l1)
+print(l2)
+print(l3)
+
+# [1, 2, 3, [4, 5, 6]]      
+# [1, 2, 3, [4, 5, 6]]      #  赋值对象随着原列表一起变化
+# [1, 2, 3, [4, 5, 6]]      #  浅拷贝外部不变，但内部会添加一个元素6
+# [1, 2, 3, [4, 5]]         #  深拷贝保持不变
+
+```
+
+注意list的坑点： 
+(1) `[[]]*n`  each element is the same list:
+``` python 
+d = [[]]*n
+d[0].append(1)
+#[[1],[1],...]
+
+d = [[] for x in xrange(n)] # 正确写法 是浅拷贝
+```
+(2) `append` is not a copy
+```
+res = []
+ans.append(res.copy())
+```
+
 ###### `*` 和`**`
 
 - function definition
