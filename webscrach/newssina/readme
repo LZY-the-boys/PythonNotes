@@ -1,0 +1,122 @@
+slide.ent.sina.com.cn 图片
+https://video.sina.com.cn/
+
+有很多信息是图片形式的，正文很短
+
+https://news.sina.com.cn/ 
+
+国内新闻：https://news.sina.com.cn/china/
+(//div[@class='left-content-1 marBot'])[1]//a/@href
+
+国际新闻：https://news.sina.com.cn/world/
+//div[@id='subShowContent1_static']//a/@href
+if 'html' in url and 'comment' not in url : 
+    request
+
+军事新闻：https://mil.news.sina.com.cn/
+//div[@class='fs_right']//a/@href
+
+//ul[contains(@class,"arcticle-list")]//a/@href
+if 'doc' in url:
+
+
+
+- [**新闻**](https://news.sina.com.cn/) 没有什么规律，很难处理...
+- [军事](https://mil.news.sina.com.cn/)
+- [国内](https://news.sina.com.cn/china/)
+- [国际](https://news.sina.com.cn/world/)
+
+- [**财经**](https://finance.sina.com.cn/)
+//li//a/@href
+<!-- 只能靠筛选 -->
+
+- [股票](https://finance.sina.com.cn/stock/)
+//div[@class='tabs-cont sto_cont0']//li//a/@href
+if 'html' in url and 'doc' in url:
+//div[@id='directad01']//li//a/@href
+if 'html' in url and 'doc' in url:
+
+- [基金](https://finance.sina.com.cn/fund/)
+
+//div[@class='top_news_focus']//a/@href
+if 'html' in url and 'doc' in url:
+
+- [外汇](https://finance.sina.com.cn/forex/)
+
+//li//a/@href
+<!-- 只能靠筛选 -->
+
+- [**科技**](https://tech.sina.com.cn/)
+https://interface.sina.cn/pc_api/public_news_data.d.json?callback=jQuery1112029873817804357894_1654346954885&mod=pctech&cids=40809&editLevel=0%2C1%2C2&cre=tianyi&merge=3&statics=1&length=15&up=0&down=0&tm=1654346955&action=0&top_id=twuWV%2CtxEfm%2CtwwBr%2Ctwwlo%2Ctwxrx%2Ctvbxg%2CtxOJn%2CtxIH1%2Ctxmwi%2C%2C&offset=0&ad=%7B%22rotate_count%22%3A100%2C%22platform%22%3A%22pc%22%2C%22channel%22%3A%22tianyi_pctech%22%2C%22page_url%22%3A%22https%3A%2F%2Ftech.sina.com.cn%2F%22%2C%22timestamp%22%3A1654346955316%7D&_=1654346954886
+
+
+
+- [手机](https://mobile.sina.com.cn/)
+
+https://feed.sina.com.cn/api/roll/get?pageid=48&lid=25&num=13&versionNumber=1.2.4&page=1&encode=utf-8&callback=feedCardJsonpCallback&_=1654347452246
+
+- [探索](https://tech.sina.com.cn/discovery/)
+- [众测](https://zhongce.sina.com.cn/)
+
+- [**体育**](https://sports.sina.com.cn/)
+搜索public
+https://interface.sina.cn/pc_api/public_news_data.d.json?callback=jQuery1113010812110867677549_1654347532195&cre=tianyi&mod=nt_home_sports_nba&merge=3&statics=1&tm=1654347560&offset=0&action=0&up=0&down=0&cids=57316&pdps=&top_id=&smartFlow=&editLevel=0%2C+1%2C+2%2C+3%2C+4&pageSize=12&type=sports_news%2Csports_slide%2Csports_video%2C+common_video_sports&ad=%7B%22rotate_count%22%3A100%2C%22platform%22%3A%22pc%22%2C%22channel%22%3A%22tianyi_pcspt%22%2C%22page_url%22%3A%22http%3A%2F%2Fsports.sina.com.cn%2F%22%2C%22timestamp%22%3A1654347532218+%7D&_=1654347532200
+- [NBA](https://sports.sina.com.cn/nba/)
+- [英超](https://sports.sina.com.cn/g/premierleague/)
+- [中超](https://sports.sina.com.cn/csl/)
+
+- [**娱乐**](https://ent.sina.com.cn/)
+搜索public
+- [明星](https://ent.sina.com.cn/star/)
+- [电影](https://ent.sina.com.cn/film/)
+- [星座](https://astro.sina.com.cn/)
+
+- [**汽车**](https://auto.sina.com.cn/)
+- [报价](https://dealer.auto.sina.com.cn/price/)
+- [买车](https://db.auto.sina.com.cn/)
+- [新车](https://auto.sina.com.cn/newcar/index.d.html)
+
+- [**博客**](http://blog.sina.com.cn/)
+- [专栏](https://finance.sina.com.cn/zl/)
+- [历史](http://blog.sina.com.cn/lm/history)
+- [天气](https://weather.sina.com.cn/)
+
+- [**视频**](https://video.sina.com.cn/)
+- [综艺](https://ent.sina.com.cn/zongyi/)
+- [VR](https://vr.sina.com.cn/)
+- [直播](https://video.sina.com.cn/l/pub)
+
+- [**房产**](https://www.leju.com/#source=pc_sina_tydh1&source_ext=pc_sina)
+- [二手房](https://esf.leju.com/?bi=tg&type=sina-pc&pos=index-dh)
+- [家居](https://jiaju.sina.com.cn/)
+- [收藏](https://collection.sina.com.cn/)
+
+- [**时尚**](https://fashion.sina.com.cn/)
+- [女性](https://eladies.sina.com.cn/)
+- [医药](https://med.sina.com/)
+- [育儿](https://baby.sina.com.cn/)
+
+- [**教育**](https://edu.sina.com.cn/)
+- [留学](https://edu.sina.com.cn/a/)
+- [公益](https://gongyi.sina.com.cn/)
+- [佛学](https://fo.sina.com.cn/)
+
+- [**图片**](https://photo.sina.com.cn/)
+- [读书](https://book.sina.com.cn/)
+- [黑猫](https://tousu.sina.com.cn/)
+- [政务](https://news.sina.com.cn/gov/)
+
+- [**微博**](https://weibo.com/)
+- [城市](https://city.sina.com.cn/)
+- [湖北](http://hb.sina.com.cn/)
+- [学投资](https://tzxy.sina.com.cn/)
+
+- [**旅游**](https://travel.sina.com.cn/)
+- [文化](https://cul.news.sina.com.cn/)
+- [彩票](https://lottery.sina.com.cn/)
+- [高尔夫](https://golf.sina.com.cn/)
+
+- [**游戏**](https://games.sina.com.cn/)
+- [手游](http://www.97973.com/)
+- [邮箱](https://mail.sina.com.cn/)
+- [English](https://english.sina.com/)
