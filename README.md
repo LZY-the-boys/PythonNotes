@@ -12,3 +12,14 @@ Python Advanced
 - yield
 - `pyproject.toml` contains build system requirements and information, which are used by pip to build the package. that is, when `pip install -e .` , it use pyproject's environment to build package, so `The detected CUDA version (11.8) mismatches the version that was used to compile PyTorch (12.1). Please make sure to use the same CUDA versions.` means `pyproject.toml` has torch-cuda12.1
 - Python 函数里边只要存在对全局变量的赋值，不管是否动态执行到，都会自动把该变量名自动创建local的，和原来的全局完全无关 所以需要提前声明 `global` 或者 `nonlocal`
+- ```python
+  a = "default_value"
+  # 定义 lambda 函数
+  b = lambda *args, r=a: r
+  # 调用 lambda 函数，不传递 r
+  result1 = b(1, 2, 3)
+  print(result1)  # 输出: default_value
+  # 调用 lambda 函数，传递 r
+  result2 = b(1, 2, 3, r="custom_value")
+  print(result2)  # 输出: custom_value
+  ```
